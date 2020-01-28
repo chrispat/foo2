@@ -1,0 +1,19 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build and deploy
+        env:
+          COMMAND: |+
+            cd /var/www
+            docker-compose stop
+            yarn install --frozen-lockfile
+            docker-compose up
+        run: |
+          echo $COMMAND | wc -l
