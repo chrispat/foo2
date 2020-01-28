@@ -16,4 +16,4 @@ jobs:
             yarn install --frozen-lockfile
             docker-compose up
         run: |
-          echo $COMMAND | wc -l
+          echo $COMMAND
