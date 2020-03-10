@@ -5,15 +5,8 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-      - name: Build and deploy
-        env:
-          COMMAND: |+
-            cd /var/www
-            docker-compose stop
-            yarn install --frozen-lockfile
-            docker-compose up
-        run: |
-          echo $COMMAND
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1
